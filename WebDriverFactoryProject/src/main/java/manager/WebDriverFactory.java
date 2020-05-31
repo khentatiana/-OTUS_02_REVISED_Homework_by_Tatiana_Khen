@@ -9,9 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class WebDriverFactory {
-//    public static WebDriver createNewDriver(String browserType) {
-//        return createNewDriver(browserType, new MutableCapabilities());
-//    }
+
 public static WebDriver createNewDriver(String browserType) {
     WebDriver driver;
     if (browserType.toUpperCase().equals(DriverType.CHROME.name())) {
