@@ -21,13 +21,14 @@ public abstract class BaseTest {
 
     @BeforeMethod
     protected void oneTimeSetUp() {
-
+        //Instantiation of driver object. To launch browser
         String browserType = System.getProperty("browser").toUpperCase();
         logger.info("Browser name is {}", browserType);
         System.out.println("======Browser name is " + browserType + "======");
         driver = WebDriverFactory.createNewDriver(browserType);
         logger.info("{} driver is created ", browserType);
         System.out.println("======New driver " + browserType + " is created======");
+
         if (driver != null) {
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);

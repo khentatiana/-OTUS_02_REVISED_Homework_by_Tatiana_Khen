@@ -28,7 +28,7 @@ public static WebDriver createNewDriver(String browserType) {
     else {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        System.out.println("======UNKNOWN driver " + browserType + "  is not supported. CHROME driver is created instead======");
+        System.out.println("======UNKNOWN driver \"" + browserType + "\"  is not supported. CHROME driver is created instead======");
     }
     return driver;
 }
