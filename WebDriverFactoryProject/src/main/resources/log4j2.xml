@@ -16,4 +16,4 @@
             <AppenderRef ref="MyFile"/>
         </Root>
     </Loggers>
-</Configuration> 
+</Configuration>
