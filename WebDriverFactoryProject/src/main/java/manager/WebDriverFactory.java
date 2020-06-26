@@ -20,7 +20,31 @@ public class WebDriverFactory {
         switch (getBrowserName(browserType)) {
             case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
-                System.out.println("FF created");
+                logger.info("FF created");
+                return new FirefoxDriver();
+            case CHROME:
+                WebDriverManager.chromedriver().setup();
+                logger.info("Chrome created");
+                return new ChromeDriver();
+            case HEADLESS: //Странный тип браузера =)
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
+                logger.info("Headless created");
+                return new ChromeDriver(options);
+            default:
+                WebDriverManager.chromedriver().setup();
+                logger.info("======UNKNOWN browser name. CHROME driver is created instead======");
+                return new ChromeDriver();
+        }
+    }
+    public static WebDriver createNewDriver(DriverType browserType ) {
+        logger.info("Browser name is {}", browserType);
+        System.out.println("======Browser name is " + browserType + "======");
+        switch (browserType) {
+            case FIREFOX:
+                WebDriverManager.firefoxdriver().setup();
+                logger.info("FF created");
                 return new FirefoxDriver();
             case CHROME:
                 WebDriverManager.chromedriver().setup();

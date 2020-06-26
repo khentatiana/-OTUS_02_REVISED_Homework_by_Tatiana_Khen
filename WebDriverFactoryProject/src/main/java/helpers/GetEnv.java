@@ -13,6 +13,6 @@ public class GetEnv {
          * В нашем случае будет "default"
          * Это убережет нас от того случая. когда переменная не была задана ( NPE  защита )
          */
-        return Optional.ofNullable(System.getProperty(envName)).orElse("DEFAULT");
+        return Optional.ofNullable(System.getProperty(envName)).orElse("DEFAULT").toUpperCase().trim();
     }
 }

@@ -1,5 +1,6 @@
 package base;
 
+import manager.DriverType;
 import manager.WebDriverFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,17 +18,18 @@ public abstract class BaseTest {
     /**
      * переменная static одна на класс. Т.е. сколько бы не создавался класс BaseTest,
      * static будет одна (паттер singleton).
-     * Возникает вопрос: что будет если запустить тексты в несколько потоков?
+     * Возникает вопрос: что будет если запустить тесты в несколько потоков?
      */
     protected WebDriver driver;
 
     @BeforeMethod
     protected void oneTimeSetUp() {
         //Instantiation of driver object. To launch browser
-        driver = WebDriverFactory.createNewDriver(getEnv("browser"));
         /**
          * null у нас не может быть, т.к. есть дефолтные значения
          */
+        driver = WebDriverFactory.createNewDriver(getEnv("browser"));
+        //driver = WebDriverFactory.createNewDriver(DriverType.CHROME);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
     }

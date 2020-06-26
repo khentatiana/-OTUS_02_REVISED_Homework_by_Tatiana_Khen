@@ -1,5 +1,6 @@
 package helpers;
 
+import base.BaseTest;
 import manager.DriverType;
 import org.xml.sax.SAXParseException;
 
@@ -10,10 +11,11 @@ import static helpers.GetEnv.getEnv;
 /**
  * Вспомогательный класс для получения переменной браузера.
  */
-public class BrowserEnv {
+public class BrowserEnv extends BaseTest {
     public static DriverType getBrowserName(String browserName){
         try{
-            return DriverType.valueOf(browserName);
+            return DriverType.valueOf(browserName.toUpperCase().trim());
+
         } catch (Exception e) {
             /**
              * Так делать плохо, но иначе мы не будем использовать ENUM.
