@@ -32,6 +32,13 @@ public class WebDriverFactory {
                 options.addArguments("--headless");
                 logger.info("Headless created");
                 return new ChromeDriver(options);
+            case INCOGNITO: //Странный тип браузера =)
+                WebDriverManager.chromedriver().setup();
+                options = new ChromeOptions();
+                options.addArguments("--incognito");
+                logger.info("Incognito created");
+                return new ChromeDriver(options);
+
             default:
                 WebDriverManager.chromedriver().setup();
                 logger.info("======UNKNOWN browser name. CHROME driver is created instead======");

@@ -10,6 +10,7 @@ import static helpers.GetEnv.getEnv;
 
 /**
  * Вспомогательный класс для получения переменной браузера.
+ * If ---String browserName--- is not in enum list then it returns DriverType.DEFAULT
  */
 public class BrowserEnv extends BaseTest {
     public static DriverType getBrowserName(String browserName){
