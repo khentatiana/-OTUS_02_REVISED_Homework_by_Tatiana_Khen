@@ -28,8 +28,8 @@ public abstract class BaseTest {
         /**
          * null у нас не может быть, т.к. есть дефолтные значения
          */
-        //driver = WebDriverFactory.createNewDriver(getEnv("browser"));
-        driver = WebDriverFactory.createNewDriver(DriverType.valueOf(getEnv("browser")));
+        driver = WebDriverFactory.createNewDriver(getEnv("browser"));
+        //driver = WebDriverFactory.createNewDriver(DriverType.valueOf(getEnv("browser")));
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
     }
